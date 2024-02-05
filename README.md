@@ -7,6 +7,8 @@ Installation
 - Clone the repository: Start by cloning this repository to your local machine.
 - Install dependencies: Navigate to the project directory and run ``poetry install`` to set up the necessary
   environment.
+- Build the package: Run ``poetry build`` to build the package.
+- Install the package: Lastly you need to install the package with ``pip install dist/*.whl``.
 
 ### Usage
 
