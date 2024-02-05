@@ -10,11 +10,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--name", type=str,
                         help="Specify the name of the deck (type: str).")
-    parser.add_argument("--description_path", type=str,
-                        help="Specify the path to the description of the deck (in json) (type: str).")
+    parser.add_argument("--description_file", type=str,
+                        help="Specify the file containing the description of the deck (in json) (type: str).")
     args = parser.parse_args()
 
-    with pathlib.Path(args.description_path).open('r') as file:
+    with pathlib.Path(args.description_file).open('r') as file:
         deck_description = DeckDescription(**json.load(file))
 
     deck_description.save_pdfs_as_images()
