@@ -6,6 +6,18 @@ from bs4 import BeautifulSoup
 
 
 def extract_title_from_page(page: fitz.Page) -> str:
+    """
+    Extracts the potential title of a page within a PDF file,
+    utilizing the largest font size present on the page as a heuristic.
+
+    Parameters:
+        page (Page): The page to find the title for
+
+    Returns:
+        A string representing the extracted title of the page, based on the heuristic of maximum font size.
+        If no title was found, then "No title found" is returned.
+    """
+
     def font_size_of_span(_span) -> float:
         font_size_match = re.search('font-size:\s*(\d+\.\d+)', _span['style'])
         if font_size_match:
@@ -24,6 +36,18 @@ def extract_title_from_page(page: fitz.Page) -> str:
 
 
 def extract_title(pdf_path: pathlib.Path, page_number: int) -> str:
+    """
+    Extracts the potential title of a page within a PDF file,
+    utilizing the largest font size present on the page as a heuristic.
+
+    Parameters:
+        pdf_path (Path): The path to the pdf file
+        page_number (int): The page number to find the title for
+
+    Returns:
+        A string representing the extracted title of the page, based on the heuristic of maximum font size.
+        If no title was found, then "No title found" is returned.
+    """
     document = fitz.open(pdf_path)
     try:
         return extract_title_from_page(document.load_page(page_number))

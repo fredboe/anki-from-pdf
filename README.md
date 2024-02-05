@@ -1,7 +1,7 @@
 # anki-from-pdf
 
-This project automates the creation of Anki decks from PDF files. Users can specify PDF documents and define how to
-split these documents into question-and-answer pairs for flashcards.
+This project automates the creation of Anki decks from PDF files (specifically presentations).
+Users can specify PDF documents and define how to split these documents into question-and-answer pairs for flashcards.
 Installation
 
 - Clone the repository: Start by cloning this repository to your local machine.
@@ -22,8 +22,6 @@ python3 -m anki_from_pdf --name="Analysis 1" --description_file=deck_description
 
 The deck description file, formatted as JSON, dictates the organization of PDF content into Anki cards. Here's an
 example (`example.json`):
-
-json
 
 ```json
 {
