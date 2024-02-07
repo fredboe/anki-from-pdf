@@ -60,7 +60,7 @@ class DeckDescription(BaseModel):
         questions = []
         for note in self.notes:
             question = note.question if note.question is not None else utils.extract_title(
-                self.pdfs.get(note.pdf_id), note.pages[0])
+                self.pdfs.get(note.pdf_id), note.pages[0] - 1)  # -1 because counting starts at 1
             questions.append(question)
         return questions
 
@@ -74,7 +74,7 @@ class DeckDescription(BaseModel):
         for note in self.notes:
             pdf_name = self.pdfs.get(note.pdf_id).stem
             answer_images = [gen_image_path(pdf_name, page_num) for page_num in
-                             range(note.pages[0], note.pages[1] + 1)]
+                             range(note.pages[0] - 1, note.pages[1])]  # -1 because counting starts at 1
             answers.append(answer_images)
         return answers
 
