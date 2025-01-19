@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "anki-from-pdf"
-version = "0.1.0"
+version = "1.0.0"
 description = "This package can be used to convert pdfs to an anki deck (by converting each page to an image)."
 authors = ["Frederik Böcker"]
 license = "MIT"
@@ -8,7 +8,6 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.10"
 genanki = "^0.13"
-pdf2image = "^1.17"
 PyMuPDF = "^1.23"
 beautifulsoup4 = "^4.12"
 pydantic = "^2.6"
