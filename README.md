@@ -29,8 +29,7 @@ slide_show = SlideShow.from_pdf(path_to_pdf)
 
 # Specify an interval of the interesting pages
 # And create an anki card that consists of the selected pages as the answer
-card = silde_show.take(start=9, end=11)
-.into_card()
+card = silde_show.take(start=9, end=11).into_card()
 
 # Save the media of the card (the pdf) on the disk and obtain a genanki.Note
 media, note = card.mediafy(parent=path_to_deck)
