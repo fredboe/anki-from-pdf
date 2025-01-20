@@ -7,11 +7,11 @@ Users can specify PDF documents and define how to split these documents into que
 
 ### Installation
 
-- Clone the repository: Start by cloning this repository to your local machine.
-- Install dependencies: Navigate to the project directory and run ``poetry install`` to set up the necessary
-  environment.
-- Build the package: Run ``poetry build`` to build the package.
-- Install the package: Lastly you need to install the package with ``pip install dist/*.whl``.
+The easiest way to install this package is to simply use pip to install a git repository. Like this:
+
+````shell
+pip install git+https://github.com/fredboe/anki-from-pdf.git
+````
 
 ### Usage
 
