@@ -1,0 +1,18 @@
+{
+  "pdfs": {
+    "slides1": "path/to/01.pdf",
+    "slides2": "path/to/02.pdf"
+  },
+  "notes": [
+    {
+      "question": null,
+      "pdf_id": "slides1",
+      "pages": [0, 10]
+    },
+    {
+      "question": "What is x^2?",
+      "pdf_id": "slides2",
+      "pages": [9, 12]
+    }
+  ]
+}
