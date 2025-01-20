@@ -19,25 +19,17 @@ class CardWithPdf:
         templates=[
             {
                 'name': 'Card',
-                'qfmt': '{{Question}}',
+                'qfmt': '<h1>{{Question}}</h1>',
                 'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
             },
-        ],
-        css="""
-            .card {
-                font-family: arial;
-                font-size: 20px;
-                text-align: center;
-                color: black;
-                background-color: white;
-            }
-            """
+        ]
     )
 
     question: str
     answer: fitz.Document | str
 
-    def mediafy(self, parent: Path, model=None) -> (List[Path], genanki.Note):  # (Media, Note)
+    def mediafy(self, parent: Path, resolution_width: int = 1200, model=None) \
+            -> (List[Path], genanki.Note):  # (Media, Note)
         _id = random.randint(1, 2 ** 32 - 1)
 
         parent.mkdir(parents=True, exist_ok=True)
@@ -46,7 +38,7 @@ class CardWithPdf:
             medias = []
             for i in range(len(self.answer)):
                 page = self.answer[i]
-                scale_factor = 1080 / page.rect.width
+                scale_factor = resolution_width / page.rect.width
                 image = page.get_pixmap(matrix=fitz.Matrix(scale_factor, scale_factor))
 
                 image_path = parent / f"slide_image_{_id}_{i}.png"
