@@ -19,8 +19,18 @@ class CardWithPdf:
         templates=[
             {
                 'name': 'Card',
-                'qfmt': '<h1>{{Question}}</h1>',
-                'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+                'qfmt': '''
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+                      <h1>{{Question}}</h1>
+                    </div>
+                ''',
+                'afmt': '''
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+                      {{FrontSide}}
+                      <hr id="answer">
+                      <div>{{Answer}}</div>
+                    </div>
+                ''',
             },
         ]
     )
