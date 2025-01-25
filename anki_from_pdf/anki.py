@@ -20,12 +20,12 @@ class CardWithPdf:
             {
                 'name': 'Card',
                 'qfmt': '''
-                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;  text-align: center;">
                       <h1>{{Question}}</h1>
                     </div>
                 ''',
                 'afmt': '''
-                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
                       {{FrontSide}}
                       <hr id="answer">
                       <div>{{Answer}}</div>
