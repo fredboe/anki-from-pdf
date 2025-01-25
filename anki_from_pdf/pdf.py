@@ -64,7 +64,8 @@ def _extract_title_from_page(page: fitz.Page) -> str:
     spans = BeautifulSoup(html_str, "html.parser").find_all("span", style=True)
 
     if spans:
-        span_with_max_font_size = max(spans, key=font_size_of_span)
-        return span_with_max_font_size.text
+        max_font_size = max(font_size_of_span(span) for span in spans)
+        max_size_texts = [span.text for span in spans if font_size_of_span(span) == max_font_size]
+        return " ".join(max_size_texts)
     else:
         return "No title found"
